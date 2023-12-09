@@ -1,2 +1,4 @@
 django_blog/__pycache__/
 django_blog/__pycache__/*
+blogapp/__pycache__/
+blogapp/__pycache__/*
