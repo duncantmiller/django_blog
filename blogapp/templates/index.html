@@ -8,7 +8,10 @@
     <h2>Latest Articles</h2>
     <ul>
         {% for article in articles %}
-            <li>{{ article.title }}</li>
+            <li>
+                {{ article.title }}
+                <a href="{% url 'show' article_id=article.id %}" class="btn btn-primary" role="button">Read more</a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
