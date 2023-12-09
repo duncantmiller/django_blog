@@ -3,5 +3,12 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-hello
+    <h1>Welcome</h1>
+    <p>Welcome to my new blog, I made it using Python and Django.</p>
+    <h2>Latest Articles</h2>
+    <ul>
+        {% for article in articles %}
+            <li>{{ article.title }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
