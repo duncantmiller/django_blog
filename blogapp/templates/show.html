@@ -1,7 +1,10 @@
 {% extends 'layouts/main_layout.html' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}{{article.title}}{% endblock %}
 
 {% block content %}
-    {{article.id}}
+    <h1>{{article.title}}</h1>
+    <h2>{{article.subtitle}}</h2>
+    <div>By Duncan Miller {{article.published_at}}</div>
+    <div class="mt-4">{{article.body}}</div>
 {% endblock %}
