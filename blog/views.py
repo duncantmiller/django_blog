@@ -6,7 +6,7 @@ def index(request):
     articles = Article.objects.order_by("published_at")
     return render(request, 'index.html', {"articles": articles})
 
-def show(request, article_id):
+def article(request, article_id):
     try:
         article = Article.objects.get(pk=article_id)
     except Article.DoesNotExist:
