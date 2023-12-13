@@ -3,6 +3,9 @@ from django.db import models
 class Author(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return f"{self.id}: {self.name}"
+
 class Article(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255)
