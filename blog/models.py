@@ -5,3 +5,6 @@ class Article(models.Model):
     subtitle = models.CharField(max_length=255)
     body = models.TextField()
     published_at = models.DateTimeField()
+
+    def __str__(self) -> str:
+        return f"{self.id}: {self.title}"
