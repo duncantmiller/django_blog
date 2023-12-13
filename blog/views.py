@@ -3,7 +3,7 @@ from .models import Article
 
 # Create your views here.
 def index(request):
-    articles = Article.objects.order_by("-published_at")
+    articles = Article.objects.order_by("published_at")
     return render(request, 'index.html', {"articles": articles})
 
 def show(request, article_id):
