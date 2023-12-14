@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from .models import Article
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+from .models import Article, Comment
 
 # Create your views here.
 def index(request):
@@ -14,5 +17,15 @@ def article(request, article_id):
     return render(request, "article.html", {
         "article": article,
         "author": article.author,
-        "tags": article.tags.all()
+        "tags": article.tags.all(),
+        "comments": article.comments.all()
     })
+
+def comment(request, article_id):
+    if request.method == "POST":
+        article = Article.objects.get(pk=article_id)
+        comment_body = request.POST["comment_body"]
+        comment = Comment(body=comment_body)
+        comment.save()
+        article.comments.add(comment)
+        return HttpResponseRedirect(reverse("article", args=(article.id,)))
