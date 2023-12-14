@@ -6,10 +6,12 @@
     <h1>{{article.title}}</h1>
     <h2>{{article.subtitle}}</h2>
     <div>By {{author.name}} {{article.published_at}}</div>
-    <div>Tags:
-        {% for tag in tags %}
-            {{ tag.title }}{% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </div>
+    {% if tags.count > 0 %}
+        <div>Tags:
+            {% for tag in tags %}
+                {{ tag.title }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="mt-4">{{article.body}}</div>
 {% endblock %}
