@@ -5,6 +5,11 @@
 {% block content %}
     <h1>{{article.title}}</h1>
     <h2>{{article.subtitle}}</h2>
-    <div>By {{article.author.name}} {{article.published_at}}</div>
+    <div>By {{author.name}} {{article.published_at}}</div>
+    <div>Tags:
+        {% for tag in tags %}
+            {{ tag.title }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </div>
     <div class="mt-4">{{article.body}}</div>
 {% endblock %}

@@ -11,4 +11,8 @@ def article(request, article_id):
         article = Article.objects.get(pk=article_id)
     except Article.DoesNotExist:
         raise Http404("Article does not exist")
-    return render(request, "article.html", {"article": article})
+    return render(request, "article.html", {
+        "article": article,
+        "author": article.author,
+        "tags": article.tags.all()
+    })
