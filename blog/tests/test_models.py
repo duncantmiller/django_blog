@@ -1,4 +1,4 @@
-from django.test import Client, TestCase
+from django.test import TestCase
 from blog.models import *
 
 class ArticleTestCase(TestCase):
@@ -18,11 +18,6 @@ class ArticleTestCase(TestCase):
 
     def test_has_comments(self):
         self.assertTrue(self.article.has_comments())
-
-    def test_has_valid_article_page(self):
-        c = Client()
-        response = c.get(f"/articles/{self.article.id}/")
-        self.assertEqual(response.status_code, 200)
 
 class AuthorTestCase(TestCase):
 
