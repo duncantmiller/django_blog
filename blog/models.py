@@ -17,6 +17,9 @@ class Tag(models.Model):
     def __str__(self) -> str:
         return f"{self.id}: {self.title}"
 
+    def articles_count(self):
+        return self.articles.count()
+
 class Comment(models.Model):
     body = models.TextField()
 

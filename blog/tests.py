@@ -17,6 +17,10 @@ class ArticleTestCase(TestCase):
                                           )
          article.tags.add(tag_1)
 
-    def test_articles_count(self):
+    def test_author_articles_count(self):
          author = Author.objects.get(name="Bash Bar")
          self.assertEqual(author.articles_count(), 1)
+
+    def test_tag_articles_count(self):
+         tag = Tag.objects.get(title="Foo")
+         self.assertEqual(tag.articles_count(), 1)
