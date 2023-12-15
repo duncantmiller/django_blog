@@ -1,7 +1,5 @@
 from django.db import models
 
-# pylint: disable=no-member
-
 class Author(models.Model):
     name = models.CharField(max_length=255)
 
