@@ -16,6 +16,9 @@ class ArticleTestCase(TestCase):
     def test_comments_count(self):
         self.assertEqual(self.article.comments_count(), 1)
 
+    def has_comments(self):
+        self.assertTrue(self.article.has_comments())
+
 class AuthorTestCase(TestCase):
 
     def setUp(self):

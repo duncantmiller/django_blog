@@ -35,3 +35,6 @@ class Article(models.Model):
 
     def comments_count(self):
         return self.comments.count()
+
+    def has_comments(self):
+        return self.comments_count() > 0
