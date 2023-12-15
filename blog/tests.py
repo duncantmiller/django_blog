@@ -4,15 +4,18 @@ from blog.models import *
 class ArticleTestCase(TestCase):
 
     def setUp(self):
-        tag_1 = Tag.objects.create(title="Foo")
+        comment_1 = Comment.objects.create(body="Foo")
         author_1 = Author.objects.create(name="Bash Bar")
         article = Article.objects.create(title="title",
                                          subtitle="subtitle",
                                          body="body",
                                          author=author_1
                                          )
-        article.tags.add(tag_1)
+        article.comments.add(comment_1)
 
+    def test_comment_count(self):
+        article = Article.objects.first
+        self.assertEqual(article.comment_count, 1)
 
 class AuthorTestCase(TestCase):
 
