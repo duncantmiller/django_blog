@@ -33,3 +33,5 @@ class Article(models.Model):
     def __str__(self) -> str:
         return f"{self.id}: {self.title}"
 
+    def comments_count(self):
+        return self.comments.count()
