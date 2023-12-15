@@ -1,10 +1,15 @@
 from django.db import models
 
+# pylint: disable=no-member
+
 class Author(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self) -> str:
         return f"{self.id}: {self.name}"
+
+    def articles_count(self):
+        return self.articles.count()
 
 class Tag(models.Model):
     title = models.CharField(max_length=60)
