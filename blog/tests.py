@@ -19,28 +19,26 @@ class ArticleTestCase(TestCase):
 class AuthorTestCase(TestCase):
 
     def setUp(self):
-        author_1 = Author.objects.create(name="Bash Bar")
+        self.author_1 = Author.objects.create(name="Bash Bar")
         Article.objects.create(title="title",
                                subtitle="subtitle",
                                body="body",
-                               author=author_1
+                               author=self.author_1
                                )
 
     def test_articles_count(self):
-        author = Author.objects.get(name="Bash Bar")
-        self.assertEqual(author.articles_count(), 1)
+        self.assertEqual(self.author_1.articles_count(), 1)
 
 class TagTestCase(TestCase):
 
     def setUp(self):
-        tag_1 = Tag.objects.create(title="Foo")
+        self.tag_1 = Tag.objects.create(title="Foo")
         author_1 = Author.objects.create(name="Bash Bar")
         article = Article.objects.create(title="title",
                                          subtitle="subtitle",
                                          body="body",
                                          author=author_1)
-        article.tags.add(tag_1)
+        article.tags.add(self.tag_1)
 
     def test_articles_count(self):
-        tag = Tag.objects.get(title="Foo")
-        self.assertEqual(tag.articles_count(), 1)
+        self.assertEqual(self.tag_1.articles_count(), 1)
