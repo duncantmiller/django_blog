@@ -17,7 +17,9 @@ class CommentTestCase(LiveServerTestCase):
         )
         self.article.comments.add(comment_1)
 
-        self.driver = webdriver.Chrome()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        self.driver = webdriver.Chrome(options=chrome_options)
 
     def tearDown(self):
         self.driver.quit()
