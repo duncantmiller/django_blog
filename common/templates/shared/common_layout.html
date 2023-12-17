@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
         body {
@@ -54,39 +55,40 @@
         {% block content %}{% endblock %}
     </div>
 
-    <footer class="bg-light text-center text-lg-start mt-4">
+    <footer class="bg-light text-center mt-4">
         <div class="container p-4">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Duncan Miller's Blog</h5>
-                    <p>
-                        Sharing thoughts, ideas, and stories. Connect with us on social media or subscribe to stay updated.
-                    </p>
-                </div>
-
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled mb-0">
-                        <li>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
                             <a href="#!" class="text-dark">About</a>
                         </li>
-                        <li>
-                            <a href="#!" class="text-dark">Contact</a>
+                        <li class="list-inline-item">
+                            <a href="mailto:duncan@openshiro.com" class="text-dark">Contact</a>
                         </li>
-                        <li>
-                            <a href="#!" class="text-dark">Privacy Policy</a>
+                        <li class="list-inline-item">
+                            <a href="https://botdevs.ai" class="text-dark">BotDevs.ai</a>
                         </li>
-                        <li>
-                            <a href="#!" class="text-dark">Terms of Service</a>
+                        <li class="list-inline-item">
+                            <a href="https://openshiro.com" class="text-dark">OpenShiro</a>
                         </li>
                     </ul>
+                    <div class="social-links mt-2">
+                        <a href="YOUR_LINKEDIN_URL" class="me-3 text-dark" style="text-decoration: none !important;">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="YOUR_GITHUB_URL" class="me-3 text-dark" style="text-decoration: none !important;">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="mailto:duncan@openshiro.com" class="text-dark" style="text-decoration: none !important;">
+                            <i class="bi bi-envelope-fill"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2023 Duncan Miller's Blog
+            © {{ current_year }} Duncan Miller's Blog
         </div>
     </footer>
 </body>
