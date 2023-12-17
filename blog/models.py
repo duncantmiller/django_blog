@@ -1,6 +1,8 @@
 from django.db import models
 
 class Author(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255)
 
     def __str__(self) -> str:
@@ -10,6 +12,8 @@ class Author(models.Model):
         return self.articles.count()
 
 class Tag(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=60)
 
     def __str__(self) -> str:
@@ -19,9 +23,13 @@ class Tag(models.Model):
         return self.articles.count()
 
 class Comment(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     body = models.TextField()
 
 class Article(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255)
     body = models.TextField()
