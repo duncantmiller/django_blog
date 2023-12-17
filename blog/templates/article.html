@@ -16,9 +16,14 @@
     <div class="mt-4">{{article.body}}</div>
 
     <h3>Comments</h3>
-    {% for comment in comments %}
-        <p>{{ comment.body }}</p>
-    {% endfor %}
+    {% if article.has_comments %}
+        <p>{{ article.comments_count }} new comment{{ article.comments_count|pluralize }}</p>
+        <ul>
+            {% for comment in comments %}
+                <li>{{ comment.created_at|date:"M d, Y" }} - {{ comment.body }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <h4>Add Comment</h4>
     <form action="{% url 'comment' article.id %}" method="post">
         {% csrf_token %}
